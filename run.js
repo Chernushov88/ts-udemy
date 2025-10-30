@@ -7,7 +7,7 @@ try {
 
   // 2️⃣ Компілюємо TS → JS
   console.log(`\n🛠️  Compiling ${tsPath}...\n`);
-  execSync(`npx tsc "${tsPath}"`, { stdio: "inherit" });
+  execSync(`npx tsc -p .`, { stdio: "inherit" }); 
 
   // 3️⃣ Формуємо шлях до JS-файлу
   const jsPath = tsPath.replace(/\.ts$/, ".js");
