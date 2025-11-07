@@ -7,10 +7,7 @@ class Node {
 }
 
 export class LinkedList extends Sorter {
-
-  constructor(public data: string) {
-    super();
-  }
+  
 
   head: Node | null = null
 
