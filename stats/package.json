@@ -1,5 +1,5 @@
 {
-  "name": "sort",
+  "name": "stats",
   "private": true,
   "version": "0.0.1",
   "type": "module",
@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "devDependencies": {
+    "@types/node": "^24.10.1",
     "typescript": "~5.9.3",
     "vite": "^7.1.7"
   },
