@@ -2,10 +2,9 @@
   "name": "stats",
   "private": true,
   "version": "0.0.1",
-  "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
+    "start": "node dist/index.js",
+    "build": "tsc",
     "preview": "vite preview"
   },
   "devDependencies": {
@@ -17,3 +16,4 @@
     "@faker-js/faker": "^10.1.0"
   }
 }
+
