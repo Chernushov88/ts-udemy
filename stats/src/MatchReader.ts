@@ -1,6 +1,8 @@
 import { dateStringToDate } from "./util";
 import { MatchResult } from "./MatchResult";
 import type { MatchData } from "./MatchData"; 
+import { CsvFileReader } from './CsvFileReader';
+
 
 interface DataReader {
   read(): Promise<void>;  
@@ -8,6 +10,10 @@ interface DataReader {
 }
 
 export class MatchReader {
+
+  static fromCsv(filename: string): MatchReader {
+    return new MatchReader(new CsvFileReader(filename));
+  }
 
   matches: MatchData[] = [];
   constructor(public reader: DataReader) {}
