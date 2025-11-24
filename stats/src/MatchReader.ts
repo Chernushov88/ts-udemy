@@ -1,7 +1,6 @@
 import { dateStringToDate } from "./util";
 import { MatchResult } from "./MatchResult";
-
-type MatchData = [Date, string, string, number, number, MatchResult, string]; 
+import type { MatchData } from "./MatchData"; 
 
 interface DataReader {
   read(): Promise<void>;  
