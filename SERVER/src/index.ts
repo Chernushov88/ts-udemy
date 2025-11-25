@@ -1,18 +1,14 @@
-import express, { Request, Response } from 'express';
-import bodyParser from 'body-parser';
+import express from 'express';
 import { router } from './routes/loginRoutes';
+import path from 'path';
 
 const app = express();
 const PORT = 3005;
-
-// Middleware
-/*app.use(bodyParser.json());
-
-// Routes
-app.get('/', (req: Request, res: Response) => {
-  res.send('Hello from Express + TypeScript!');
-});*/
-
+// Вказуємо папку з шаблонами
+app.set('views', path.join(__dirname, '../views'));
+app.set('view engine', 'ejs');
+// Статичні файли (CSS, картинки)
+app.use(express.static(path.join(__dirname, '../public')));
 app.use(router)
 
 // Start server
