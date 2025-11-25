@@ -4,16 +4,23 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
-const body_parser_1 = __importDefault(require("body-parser"));
+const loginRoutes_1 = require("./routes/loginRoutes");
 const app = (0, express_1.default)();
-const PORT = 3000;
+const PORT = 3005;
 // Middleware
-app.use(body_parser_1.default.json());
+/*app.use(bodyParser.json());
+
 // Routes
-app.get('/', (req, res) => {
-    res.send('Hello from Express + TypeScript!');
-});
+app.get('/', (req: Request, res: Response) => {
+  res.send('Hello from Express + TypeScript!');
+});*/
+app.use(loginRoutes_1.router);
 // Start server
 app.listen(PORT, () => {
-    console.log(`🚀 Server running at http://localhost:${PORT}`);
+    console.log(`
+    <div>
+    <h1>
+    🚀 Server running at http://localhost:${PORT}
+    </h1>
+    <div>`);
 });
