@@ -13,6 +13,7 @@ app.set('views', path_1.default.join(__dirname, '../views'));
 app.set('view engine', 'ejs');
 // Статичні файли (CSS, картинки)
 app.use(express_1.default.static(path_1.default.join(__dirname, '../public')));
+app.use(express_1.default.urlencoded({ extended: true }));
 app.use(loginRoutes_1.router);
 // Start server
 app.listen(PORT, () => {

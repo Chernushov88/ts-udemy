@@ -7,3 +7,7 @@ exports.router = router;
 router.get('/login', (req, res) => {
     res.render('login'); // шукає views/login.ejs
 });
+router.post('/login', (reg, res) => {
+    const { email, password } = reg.body;
+    res.send(email + ' ' + password);
+});
