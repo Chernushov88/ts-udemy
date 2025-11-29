@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <title>Login</title>
-    <link href="/css/output.css" rel="stylesheet">
-  </head>
-  <body>
-    <section class="bg-gray-50 dark:bg-gray-900">
-      <div class="container mx-auto w-full">
-        <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+  <link href="/css/output.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 min-h-screen flex flex-col">
+  <%- include('partials/header') %>
+  <main class="flex-1 flex">    
+    <section class="bg-gray-50 dark:bg-gray-900 flex-1">
+      <div class="container mx-auto w-full h-full">
+        <div class="flex flex-col items-center justify-center h-full px-6 py-8">
             <a href="#" class="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
                 <img class="w-8 h-8 mr-2" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/logo.svg" alt="logo">
                 Flowbite    
@@ -47,6 +49,8 @@
             </div>
         </div>
       </div>      
-    </section>
-  </body>
+    </section>    
+  </main>
+  <%- include('partials/footer') %> 
+</body>
 </html>
