@@ -5,9 +5,14 @@ const express_1 = require("express");
 const router = (0, express_1.Router)();
 exports.router = router;
 router.get('/login', (req, res) => {
-    res.render('login'); // шукає views/login.ejs
+    res.render('login');
 });
 router.post('/login', (reg, res) => {
     const { email, password } = reg.body;
-    res.send(email + ' ' + password);
+    if (email && password) {
+        res.send(email.toUpperCase() + ' ' + password.toUpperCase());
+    }
+    else {
+        res.send('You must provide an email');
+    }
 });
