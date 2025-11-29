@@ -1,23 +1,22 @@
 import express from 'express';
-import { router } from './routes/loginRoutes';
 import path from 'path';
 
+import { router as loginRouter } from './routes/loginRoutes';
+import { homeRouter } from './routes/homeRoutes';
+
 const app = express();
-const PORT = 3005;
-// Вказуємо папку з шаблонами
+const PORT = 3001;
+
 app.set('views', path.join(__dirname, '../views'));
 app.set('view engine', 'ejs');
-// Статичні файли (CSS, картинки)
-app.use(express.static(path.join(__dirname, '../public')));
-app.use(express.urlencoded({ extended: true }))
-app.use(router)
 
-// Start server
+app.use(express.static(path.join(__dirname, '../public')));
+app.use(express.urlencoded({ extended: true }));
+
+// Routes
+app.use(homeRouter);
+app.use(loginRouter);
+
 app.listen(PORT, () => {
-  console.log(`
-    <div>
-    <h1>
-    🚀 Server running at http://localhost:${PORT}
-    </h1>
-    <div>`);
+  console.log(`🚀 Server running at http://localhost:${PORT}`);
 });
