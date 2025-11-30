@@ -9,10 +9,14 @@ router.get('/login', (req, res) => {
 });
 router.post('/login', (reg, res) => {
     const { email, password } = reg.body;
-    if (email && password) {
-        res.send(email.toUpperCase() + ' ' + password.toUpperCase());
+    if (email && password && email === 'test@gmail.com' && password === 'password') {
+        reg.session = { logedIn: true };
+        return res.redirect('/');
     }
-    else {
-        res.send('You must provide an email');
-    }
+    res.send('Invalide email or password');
+});
+// Logout route
+router.get('/logout', (req, res) => {
+    req.session = null;
+    res.redirect('/login');
 });

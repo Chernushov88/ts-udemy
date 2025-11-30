@@ -1,9 +1,13 @@
 import { Router, Request, Response } from "express";
+import { requireAuth } from "../middleware/requireAuth";
+
 
 const homeRouter = Router();
 
-homeRouter.get('/', (req: Request, res: Response) => {
-  res.render('home');  // views/home.ejs
+homeRouter.get('/', requireAuth, (req: Request, res: Response) => {
+  res.render('home',{
+    email: req.session?.email
+  }); 
 });
 
 export { homeRouter };
