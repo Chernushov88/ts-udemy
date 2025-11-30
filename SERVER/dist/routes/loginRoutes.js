@@ -10,7 +10,7 @@ router.get('/login', (req, res) => {
 router.post('/login', (reg, res) => {
     const { email, password } = reg.body;
     if (email && password && email === 'test@gmail.com' && password === 'password') {
-        reg.session = { logedIn: true };
+        reg.session = { logedIn: true, email };
         return res.redirect('/');
     }
     res.send('Invalide email or password');
