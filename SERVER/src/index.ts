@@ -31,7 +31,6 @@ app.use(homeRouter);
 app.use(loginRouter);
 app.use(contactRoutes);
 
-
 app.listen(PORT, () => {
   console.log(`🚀 Server running at http://localhost:${PORT}`);
 });

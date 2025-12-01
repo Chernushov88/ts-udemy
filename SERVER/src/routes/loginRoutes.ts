@@ -5,16 +5,17 @@ interface RequestWithBody extends Request {
 }
 
 const router = Router()
-
+// GET /login
 router.get('/login', (req: Request, res: Response) => {
   res.render('login'); 
 });
 
-router.post('/login', (reg: RequestWithBody, res: Response) => {
-  const {email, password } = reg.body
+// POST /login
+router.post('/login', (req: RequestWithBody, res: Response) => {
+  const {email, password } = req.body
 
-  if(email && password && email === 'test@gmail.com' && password === 'password'){
-    reg.session = { logedIn: true, email }; 
+  if(email && password && email === 'test@gmail.com' && password === 'Password'){
+    req.session = { logedIn: true, email }; 
     return res.redirect('/');
   } 
   res.send('Invalide email or password')
