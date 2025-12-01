@@ -23,6 +23,9 @@ app.use(cookieSession({
 
 app.use((req, res, next) => {
   res.locals.email = req.session?.email || null;
+  res.locals.success = req.session?.success || null;
+
+  if(req.session) req.session.success = null
   next();
 });
 

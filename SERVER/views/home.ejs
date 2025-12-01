@@ -19,3 +19,18 @@
   <%- include('partials/footer') %>
 </body>
 </html>
+<div id="successModal"
+     class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden">
+  <div class="bg-white p-6 rounded shadow-lg w-80 text-center">
+    <p class="text-green-600 font-semibold"><%= success %></p>
+  </div>
+</div>
+<script>
+  <% if (success) { %>
+    document.getElementById('successModal').classList.remove('hidden');
+
+    setTimeout(() => {
+      document.getElementById('successModal').classList.add('hidden');
+    }, 3000);
+  <% } %>
+</script>

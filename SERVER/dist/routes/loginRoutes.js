@@ -6,16 +6,24 @@ const router = (0, express_1.Router)();
 exports.router = router;
 // GET /login
 router.get('/login', (req, res) => {
-    res.render('login');
+    res.render('login', { error: null });
 });
 // POST /login
 router.post('/login', (req, res) => {
     const { email, password } = req.body;
-    if (email && password && email === 'test@gmail.com' && password === 'Password') {
-        req.session = { logedIn: true, email };
+    const isValid = (email === 'test@gmail.com' &&
+        password === 'Password');
+    if (isValid) {
+        req.session = { logedIn: true, email, success: `Welcome, ${email}!` };
         return res.redirect('/');
     }
-    res.send('Invalide email or password');
+    // res.send('Invalide email or password')
+    if (email || password) {
+        return res.render('login', {
+            error: 'Invalide email or password'
+        });
+    }
+    return res.render('login');
 });
 // Logout route
 router.get('/logout', (req, res) => {

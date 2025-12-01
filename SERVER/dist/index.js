@@ -22,6 +22,9 @@ app.use((0, cookie_session_1.default)({
 }));
 app.use((req, res, next) => {
     res.locals.email = req.session?.email || null;
+    res.locals.success = req.session?.success || null;
+    if (req.session)
+        req.session.success = null;
     next();
 });
 // Routes
